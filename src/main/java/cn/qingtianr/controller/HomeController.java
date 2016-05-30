@@ -1,7 +1,9 @@
 package cn.qingtianr.controller;
 
 import cn.qingtianr.pojo.Person;
+import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.PersonService;
+import cn.qingtianr.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.ArrayList;
 
 /**
  * Created by jack on 16-5-27.
@@ -20,12 +24,17 @@ public class HomeController {
     @Autowired
     PersonService personservice;
 
+    @Autowired
+    ThemeService themeservice;
+
     /**
      * 能够显示出来主页的信息
      * @return
      */
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String home(){
+    public String home(Model model){
+        ArrayList<Theme> themes = themeservice.showAllTheme();
+        model.addAttribute("themes",themes);
         return "home";
     }
 

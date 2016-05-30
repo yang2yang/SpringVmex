@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jack
@@ -12,5 +13,10 @@
 </head>
 <body>
 <p>这里是主页的内容</p>
+<p>下面是所有的主题</p>
+<c:forEach items="${themes}" var="theme">
+    <p>${theme.theme_title}</p>
+    <p>${theme.theme_content}</p>
+</c:forEach>
 </body>
 </html>

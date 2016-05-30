@@ -22,9 +22,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
-
-
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
     destroy-method="close">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -52,8 +49,14 @@
     <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
+    <bean id="thememapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="cn.qingtianr.dao.ThemeMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
     <bean id="personservice"  class="cn.qingtianr.service.serviceImp.PersonServiceImp"/>
 
+    <bean id="themeservice" class="cn.qingtianr.service.serviceImp.ThemeServieceImp"/>
     <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
     <!--<property name="basePackage" value="cn.qingtianr.dao" />-->
     <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->

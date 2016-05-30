@@ -20,6 +20,7 @@ public class PersonServiceImp implements PersonService{
 
     @Override
     public boolean addPerson(Person person) {
+        //这层是不是捕获一个异常比较好
         personmapper.addPerson(person);
         return false;
     }

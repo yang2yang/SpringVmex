@@ -15,4 +15,20 @@ public class Theme {
     private int theme_click_count;
     private Date theme_date;
     private int theme_reply_count;
+
+    public String getTheme_title() {
+        return theme_title;
+    }
+
+    public void setTheme_title(String theme_title) {
+        this.theme_title = theme_title;
+    }
+
+    public String getTheme_content() {
+        return theme_content;
+    }
+
+    public void setTheme_content(String theme_content) {
+        this.theme_content = theme_content;
+    }
 }
