@@ -15,7 +15,7 @@
 <p>这里是主页的内容</p>
 <p>下面是所有的主题</p>
 <c:forEach items="${themes}" var="theme">
-    <p>${theme.theme_title}</p>
+    <p><a href="/t/${theme.theme_id}">${theme.theme_title}</a></p>
     <p>${theme.theme_content}</p>
 </c:forEach>
 </body>

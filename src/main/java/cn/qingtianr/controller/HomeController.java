@@ -1,6 +1,7 @@
 package cn.qingtianr.controller;
 
 import cn.qingtianr.pojo.Person;
+import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.PersonService;
 import cn.qingtianr.service.ThemeService;
@@ -69,7 +70,11 @@ public class HomeController {
      */
     @RequestMapping(value = "/t/{number}",method = RequestMethod.GET)
     public String showTheme(@PathVariable int number,Model model){
-        return "theTheme";
+        Theme theme = themeservice.findThemeById(number);
+        ArrayList<Reply> replys = themeservice.findThemeReplys(number);
+        model.addAttribute("theme",theme);
+        model.addAttribute("replys",replys);
+        return "post";
     }
 
 }

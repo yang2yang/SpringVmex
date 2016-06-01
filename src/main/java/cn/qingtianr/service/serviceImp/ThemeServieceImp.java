@@ -1,6 +1,7 @@
 package cn.qingtianr.service.serviceImp;
 
 import cn.qingtianr.dao.ThemeMapper;
+import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,15 @@ public class ThemeServieceImp implements ThemeService {
     public ArrayList<Theme> showAllTheme(){
         ArrayList<Theme> themes = thememapper.showAllTheme();
         return themes;
+    }
+
+    @Override
+    public Theme findThemeById(int id) {
+        return thememapper.findThemeById(id);
+    }
+
+    @Override
+    public ArrayList<Reply> findThemeReplys(int id) {
+        return thememapper.findThemeReplys(id);
     }
 }
