@@ -14,8 +14,8 @@ public class PersonServiceImp implements PersonService{
     private PersonMapper personmapper;
 
     @Override
-    public boolean findPersonByName(Person pserson) {
-        return false;
+    public boolean findPersonByName(Person person) {
+        return personmapper.findPersonByName(person);
     }
 
     @Override

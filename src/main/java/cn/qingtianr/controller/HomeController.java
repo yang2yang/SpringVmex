@@ -5,6 +5,8 @@ import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.PersonService;
 import cn.qingtianr.service.ThemeService;
+import com.sun.org.glassfish.gmbal.ParameterNames;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 
 @Controller
 public class HomeController {
+
+    private static Logger logger = Logger.getLogger(HomeController.class);
 
     @Autowired
     PersonService personservice;
@@ -60,6 +64,31 @@ public class HomeController {
         //todo 调用数据库后对Person表中添加一条记录，一个人
         personservice.addPerson(person);
         return "home";
+    }
+
+    /**
+     * 登录页面
+     * @return
+     */
+    @RequestMapping(value="/signin",method = RequestMethod.GET)
+    public String signin(){
+        return "signin";
+    }
+
+    /**
+     * 检验是否登录了
+     * @return
+     */
+    @RequestMapping(value="/signin",method = RequestMethod.POST)
+    public String checkSignin(@ModelAttribute Person person,Model model){
+        boolean flag = personservice.findPersonByName(person);
+        logger.debug("The flag = " + flag);
+        if(flag == true){
+            return "home";
+        }
+        else {
+            return "signin";
+        }
     }
 
     /**

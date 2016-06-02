@@ -12,6 +12,8 @@
     <title>这里是主页的内容</title>
 </head>
 <body>
+<p><a href="/signin">登录</a></p>
+<p><a href="/signup">注册</a></p>
 <p>这里是主页的内容</p>
 <p>下面是所有的主题</p>
 <c:forEach items="${themes}" var="theme">
