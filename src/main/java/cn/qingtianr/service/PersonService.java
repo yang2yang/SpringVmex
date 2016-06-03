@@ -10,7 +10,7 @@ public interface PersonService{
      * @param pserson Person的模型
      * @return 真或者假
      */
-    public boolean findPersonByName(Person pserson);
+    public Person findPersonByName(Person pserson);
 
     /**
      * 增加一个Person

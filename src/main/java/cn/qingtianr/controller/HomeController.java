@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
@@ -80,15 +81,10 @@ public class HomeController {
      * @return
      */
     @RequestMapping(value="/signin",method = RequestMethod.POST)
-    public String checkSignin(@ModelAttribute Person person,Model model){
-        boolean flag = personservice.findPersonByName(person);
-        logger.debug("The flag = " + flag);
-        if(flag == true){
-            return "home";
-        }
-        else {
-            return "signin";
-        }
+    public String checkSignin(@ModelAttribute Person person, HttpSession session,Model model){
+        Person user = personservice.findPersonByName(person);
+        session.setAttribute("user",user);
+        return "home";
     }
 
     /**

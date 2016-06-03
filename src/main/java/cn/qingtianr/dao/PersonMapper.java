@@ -13,5 +13,5 @@ public interface PersonMapper {
     int addPerson(Person person);
 
     @Select("select * from person where username=#{username}")
-    boolean findPersonByName(Person person);
+    Person findPersonByName(Person person);
 }
