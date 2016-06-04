@@ -4,10 +4,13 @@ import cn.qingtianr.dao.PersonMapper;
 import cn.qingtianr.pojo.Person;
 import cn.qingtianr.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by jack on 16-5-27.
  */
+
+@Service
 public class PersonServiceImp implements PersonService{
 
     @Autowired

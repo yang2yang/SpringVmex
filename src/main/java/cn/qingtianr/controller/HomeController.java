@@ -5,7 +5,6 @@ import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.PersonService;
 import cn.qingtianr.service.ThemeService;
-import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -100,6 +99,11 @@ public class HomeController {
         model.addAttribute("theme",theme);
         model.addAttribute("replys",replys);
         return "post";
+    }
+
+    @RequestMapping(value = "/hhh")
+    public String hhh(){
+        return "hhh";
     }
 
 }

@@ -5,13 +5,16 @@ import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import cn.qingtianr.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 /**
  * Created by jack on 16-5-30.
  */
-public class ThemeServieceImp implements ThemeService {
+
+@Service
+public class ThemeServiceImp implements ThemeService {
 
     @Autowired
     ThemeMapper thememapper;

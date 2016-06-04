@@ -3,12 +3,15 @@ package cn.qingtianr.dao;
 import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
 /**
  * Created by jack on 16-5-30.
  */
+
+@Repository
 public interface ThemeMapper {
     /**
      * 返回所有的主题
