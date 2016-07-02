@@ -9,6 +9,7 @@ import java.time.DateTimeException;
 public class Theme {
     private int theme_id;
     private int theme_f_id;
+    private String theme_creater;
     private String node;
     private String theme_title;
     private String theme_content;
@@ -78,5 +79,13 @@ public class Theme {
 
     public void setTheme_reply_count(int theme_reply_count) {
         this.theme_reply_count = theme_reply_count;
+    }
+
+    public String getTheme_creater() {
+        return theme_creater;
+    }
+
+    public void setTheme_creater(String theme_creater) {
+        this.theme_creater = theme_creater;
     }
 }

@@ -1,8 +1,10 @@
 package cn.qingtianr.controller;
 
+import cn.qingtianr.pojo.Node;
 import cn.qingtianr.pojo.Person;
 import cn.qingtianr.pojo.Reply;
 import cn.qingtianr.pojo.Theme;
+import cn.qingtianr.service.NodeService;
 import cn.qingtianr.service.PersonService;
 import cn.qingtianr.service.ThemeService;
 import org.apache.log4j.Logger;
@@ -32,14 +34,19 @@ public class HomeController {
     @Autowired
     ThemeService themeservice;
 
+    @Autowired
+    NodeService nodeservice;
+
     /**
      * 能够显示出来主页的信息
      * @return
      */
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/")
     public String home(Model model){
         ArrayList<Theme> themes = themeservice.showAllTheme();
+        ArrayList<Node> nodes = nodeservice.showAllNodes();
         model.addAttribute("themes",themes);
+        model.addAttribute("nodes",nodes);
         return "home";
     }
 
@@ -82,8 +89,11 @@ public class HomeController {
     @RequestMapping(value="/signin",method = RequestMethod.POST)
     public String checkSignin(@ModelAttribute Person person, HttpSession session,Model model){
         Person user = personservice.findPersonByName(person);
+//      登入的话，就将用户的信息放入到session中
         session.setAttribute("user",user);
-        return "home";
+//      如果这里直接返回home的视图的话，那么就不会有直接访问主页的效果了，所以要使用跳转？
+//      其实我想要的效果是重定向,而不是请求跳转
+        return "forward:/";
     }
 
     /**
