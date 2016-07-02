@@ -101,9 +101,5 @@ public class HomeController {
         return "post";
     }
 
-    @RequestMapping(value = "/hhh")
-    public String hhh(){
-        return "hhh";
-    }
 
 }
